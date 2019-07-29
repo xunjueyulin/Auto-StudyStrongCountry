@@ -92,41 +92,8 @@ def watch_videos():
     browser.switch_to.window(all_handles[0]) # 回到第一个窗口
     time.sleep(5)
     print("观看视频完毕\n")
-		
-	
 
-    #for i, video in enumerate(videos):
-        #if i > 6:     #视频上限6分
-           # break
-        #video.click()
-        #all_handles = browser.window_handles
-        #browser.switch_to_window(all_handles[-1])
-        #browser.get(browser.current_url)
 
-        # 点击播放
-        #browser.find_element_by_xpath("//div[@class='outter']").click() # 视频链接点击textWrapper类
-        # 获取视频时长
-        #video_duration_str = browser.find_element_by_xpath("//span[@class='duration']").get_attribute('innerText')  # 获取视频时长的字段内容，几分几秒
-        #video_duration = int(video_duration_str.split(':')[0]) * 60 + int(video_duration_str.split(':')[1])  # 将时长转换成秒数
-        # 保持学习，直到视频结束
-        #time.sleep(video_duration + 3)
-        #spend_time += video_duration + 3
-        #browser.close()
-        #browser.switch_to_window(all_handles[0])
-
-    # if spend_time < 3010:
-    #     browser.get(LONG_VIDEO_LINK)
-    #     browser.execute_script("var q=document.documentElement.scrollTop=850")
-    #     try:
-    #         browser.find_element_by_xpath("//div[@class='outter']").click()
-    #     except:
-    #         pass
-    #
-    #     # 观看剩下的时间
-    #     time.sleep(3010 - spend_time)
-    #browser.get(TEST_VIDEO_LINK)
-    #time.sleep(3010 - spend_time)
-    #print("播放视频完毕\n")
 	
 def get_scores():
     """获取当前积分"""
