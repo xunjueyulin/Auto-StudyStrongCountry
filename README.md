@@ -15,7 +15,8 @@
 - python 3.7 
 - anaconda 3 （64-bit）
 - Google Chorme  75.0.3770.142 
-- Chromedriver （正常应该找对应版本的，不过我使用的是 https://chromedriver.storage.googleapis.com/index.html?path=74.0.3729.6/)
+- Chromedriver （正常应该找对应版本的，不过我使用的是 https://chromedriver.storage.googleapis.com/index.html?path=74.0.3729.6/；
+2019.08.08更新：找到一个可以下载完整版本的地址http://chromedriver.storage.googleapis.com/index.html ，各位按需下载即可)
 ### 使用方法
 - V0.1版本
   - 安装完Google Chrome和Chromedriver，Python后，运行代码即可
