@@ -10,7 +10,7 @@ options.add_argument('--disable-gpu')
 # options.add_experimental_option('excludeSwitches',['enable-automation'])  # 添加实验性质的参数，好像不写也没关系
 
 browser = webdriver.Chrome()
-# 确定投票页面
+# 确定投票页面，替换成其他网站
 VOTE_PAGE = 'http://data.zaihujk.com/f/GG0RAh'
 i = 0
 # 加入无头浏览模式
