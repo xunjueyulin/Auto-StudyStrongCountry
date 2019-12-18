@@ -145,11 +145,16 @@ def execute_excel_2017_to_2019(original_form_path, data):
     borders.right_colour = 0x3A
     borders.top_colour = 0x3A
     borders.bottom_colour = 0x3A
+    pattern = xlwt.Pattern()
+    pattern.pattern = xlwt.Pattern.SOLID_PATTERN
+    pattern.pattern_fore_colour = xlwt.Style.colour_map['bright_green']
     for key in data:
         date_form = xlwt.XFStyle()  # 设置日期格式
         date_form.num_format_str = 'yyyy/mm/dd'
         style = xlwt.XFStyle()  # 设置边框样式
         style.borders = borders
+        color_pattern = xlwt.XFStyle()  # 设置单元格背景色
+        color_pattern.pattern = pattern
         # 1.以下填入必填数据
         fixed_assets_form_sheet1.write(1, 11, key)  # 写入项目编号
         fixed_assets_form_sheet1.write(5, 5, data[key][0], style)  # 写入项目名称
@@ -163,6 +168,7 @@ def execute_excel_2017_to_2019(original_form_path, data):
         fixed_assets_form_sheet1.write(8, 13, data[key][8], style)  # 写入设计费
         fixed_assets_form_sheet1.write(9, 13, data[key][9], style)  # 写入监理费
         fixed_assets_form_sheet1.write(10, 9, data[key][10], style)  # 写入其他费
+        fixed_assets_form_sheet1.write(2, 11, data[key][11], color_pattern)  # 写入转固类型
         # 2.以下写入资产类别
         fixed_assets_form_sheet1.write(5, 2, data[key][4], style)  # 人工费资产类别
         fixed_assets_form_sheet1.write(6, 2, data[key][4], style)  # 器材费资产类别
@@ -243,11 +249,16 @@ def execute_excel_2019_new(original_form_path, data):
     borders.right_colour = 0x3A
     borders.top_colour = 0x3A
     borders.bottom_colour = 0x3A
+    pattern = xlwt.Pattern()
+    pattern.pattern = xlwt.Pattern.SOLID_PATTERN
+    pattern.pattern_fore_colour = xlwt.Style.colour_map['bright_green']
     for key in data:
         date_form = xlwt.XFStyle()  # 设置日期格式
         date_form.num_format_str = 'yyyy/mm/dd'
         style = xlwt.XFStyle()  # 设置边框样式
         style.borders = borders
+        color_pattern = xlwt.XFStyle()  # 设置单元格背景色
+        color_pattern.pattern = pattern
         # 1.以下填入必填数据
         fixed_assets_form_sheet1.write(1, 11, key)  # 写入项目编号
         fixed_assets_form_sheet1.write(5, 5, data[key][0], style)  # 写入项目名称
@@ -263,7 +274,7 @@ def execute_excel_2019_new(original_form_path, data):
         fixed_assets_form_sheet1.write(10, 13, data[key][10], style)  # 写入安全生产费
         fixed_assets_form_sheet1.write(11, 13, data[key][11], style)  # 写入进场费
         fixed_assets_form_sheet1.write(12, 9, data[key][12], style)  # 写入其他费
-
+        fixed_assets_form_sheet1.write(2, 11, data[key][13], color_pattern)  # 写入转固类型
         # 2.以下写入资产类别
         fixed_assets_form_sheet1.write(5, 2, data[key][4], style)  # 人工费资产类别
         fixed_assets_form_sheet1.write(6, 2, data[key][4], style)  # 器材费资产类别
@@ -361,15 +372,15 @@ def execute_excel_2019_new(original_form_path, data):
 if __name__ == '__main__':
     # 使用2017-2019一期选择下面
     # read_data_to_list("data.xls", 0, project_codes)
-    # read_datas_to_list("data.xls", [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], value_list)
+    # read_datas_to_list("data.xls", [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], value_list)
 
-    # datas_dic = dict(zip(project_codes, value_list)) # 将两个列表组成字典
+    # datas_dic = dict(zip(project_codes, value_list))  # 将两个列表组成字典
     # execute_excel_2016_and_before('SZ-BB-XJ-JRW-201511-002（2016年以前项目）.xls', datas_dic)
     # execute_excel_2017_to_2019('SZ-BB-XJ-ZX-201903-008（2017-2019工程）.xls', datas_dic)
 
     # 使用2019年二期系统选择下面
     read_data_to_list("data(2019new).xls", 0, project_codes)
-    read_datas_to_list("data(2019new).xls", [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], value_list)
+    read_datas_to_list("data(2019new).xls", [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], value_list)
     datas_dic = dict(zip(project_codes, value_list))
     execute_excel_2019_new('SZ-JRW-3L-2019-0190010025（2019年新工程）.xls', datas_dic)
 
